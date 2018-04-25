@@ -1,16 +1,11 @@
-let view = (state, actions) => {
-  let count = state##count;
+let view = (state, actions) =>
   Hyperapp.(
     h(
       "div",
       {"class": "main"},
       [|
-        h("h2", Js.Obj.empty(), [|string("Hello from Hyperapp")|]),
-        h(
-          "h3",
-          Js.Obj.empty(),
-          [|string("Count is " ++ string_of_int(count))|],
-        ),
+        h_("h2", [|string("Hello from Hyperapp")|]),
+        h_("h3", [|string("Count is " ++ string_of_int(state##count))|]),
         h(
           "button",
           {"onclick": () => actions##increment},
@@ -24,4 +19,3 @@ let view = (state, actions) => {
       |],
     )
   );
-};
